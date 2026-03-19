@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>North County Beacon — Brian T. Bailey Edition</title>
+  <title>North County Beacon — Personalized News + Fantasy Football</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📰</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
@@ -45,22 +45,21 @@ function buildFeedUrl(query) {
 
 // ── BRIAN'S PROFILE (used by analysis engine, editable, persists in URL hash) ──
 const DEFAULT_PROFILE = {
-  name: "Brian",
-  fullName: "Brian T. Bailey",
-  street: "Aliso Viejo",
+  name: "Reader",
+  fullName: "Your Name",
+  street: "Your Neighborhood",
   city: "Carlsbad",
   region: "North County",
-  school: "UCLA",
-  gradYear: "1994",
-  degree: "Economics",
-  company: "Dividend Finance",
-  role: "COO",
-  industry: "fintech lending",
-  kidSchool: "University of Washington",
-  hobby: "pickleball",
-  causes: "autism services, fiscal accountability",
-  // Expanded interests from Bailey family projects
-  extraInterests: "options trading, financial markets, Chinese tech/AI competition, ERP systems, music, tax policy, Monstera plants, geopolitics",
+  school: "Your University",
+  gradYear: "2000",
+  degree: "Your Degree",
+  company: "Your Company",
+  role: "Your Role",
+  industry: "your industry",
+  kidSchool: "",
+  hobby: "your hobby",
+  causes: "your causes",
+  extraInterests: "",
   extraFeeds: "",
   feedQueries: DEFAULT_FEED_QUERIES.join("\n"),
   // Fantasy Football leagues (Sleeper league IDs)
@@ -296,46 +295,45 @@ function rssToStory(item, id) {
 const FEATURED = [
   {
     id: 9001,
-    title: "Fifth Third Bancorp Completes Dividend Finance Acquisition; Solar Lending Platform to Expand Nationally",
-    domain: "dividendfinance.com", url: "#", tag: "Fintech", icon: "💼",
-    points: 567, user: "FinTechSD", time: 72, commentCount: 423, isFeatured: true,
-    summary: "Fifth Third Bancorp has completed its acquisition of Dividend Finance, the solar and home improvement lending platform founded by CEO Eric White in 2013. The acquisition brings Dividend's EmpowerLoan product and 700+ installation partner network under Fifth Third's balance sheet. The Carlsbad-area operations team, built under COO Brian Bailey's leadership from 2019 onward, is expected to remain intact.",
+    title: "Carlsbad City Council Approves Mixed-Use Village Plan Near Poinsettia Station",
+    domain: "carlsbadca.gov", url: "#", tag: "Local Government", icon: "📋",
+    points: 445, user: "NorthCountyNews", time: 72, commentCount: 312, isFeatured: true,
+    summary: "The Carlsbad City Council voted 4-1 to approve a 320-unit mixed-use development near Poinsettia Station, including 48 affordable units and 25,000 sq ft of retail. The project meets RHNA housing targets while adding transit-oriented density. Construction is expected to begin Q3 2026.",
     sources: [
-      { text: "Fifth Third acquisition", src: "Fifth Third Bancorp SEC Filing, Form 8-K" },
-      { text: "700+ partners, EmpowerLoan launch", src: "dividendfinance.com" },
-      { text: "Brian Bailey COO from 2019", src: "Adapt.io, Wiza, professional records" }
+      { text: "Council vote 4-1 approval", src: "City of Carlsbad, Council Minutes" },
+      { text: "320 units, 48 affordable", src: "carlsbadca.gov planning documents" },
+      { text: "RHNA compliance", src: "SANDAG Regional Housing Assessment" }
     ],
-    relevance: "Brian, this is YOUR legacy. You joined Dividend Finance as COO in June 2019 and built the operational infrastructure that made this acquisition possible. From product strategy at Appgenesys, to scaling operations at CoreLogic and SpringboardAuto, to co-founding OWN Home Finance — every role built toward the operational leadership that helped make Dividend an acquisition target for a top-20 U.S. bank.",
-    conservative: "The Dividend Finance story is a conservative success narrative: a private company identified a market opportunity, built technology, attracted capital, and grew through competition — not subsidy. The acquisition by Fifth Third is the free market working as designed. That said, the solar lending industry's dependence on federal tax credits is a policy risk worth monitoring. The companies that survive any credit reduction will be the ones with the best operational efficiency — exactly what a strong COO builds."
+    relevance: generateRelevance("Carlsbad City Council housing zoning development", { tag: "Local Government" }, "Carlsbad City Council housing"),
+    conservative: generateConservativeAnalysis("Carlsbad City Council housing zoning development RHNA", { tag: "Housing / Real Estate" })
   },
   {
     id: 9002,
-    title: "Carlsbad City Council Approves Robertson Ranch Park Master Plan with 6 Dedicated Pickleball Courts",
-    domain: "carlsbadca.gov", url: "#", tag: "Parks & Recreation", icon: "🏓",
-    points: 445, user: "PaddleUp760", time: 96, commentCount: 378, isFeatured: true,
-    summary: "The Carlsbad City Council approved the Robertson Ranch Park master plan, including six outdoor pickleball courts with LED lighting and noise-reduction fencing. Combined with planned courts at Stagecoach and Calavera Hills, Carlsbad will have 14 dedicated outdoor courts. The Pickleball Club of Carlsbad on Faraday reports 340% membership growth since 2021.",
+    title: "San Diego County Unemployment Drops to 3.1%; North County Tech Sector Leads Hiring",
+    domain: "labormarketinfo.edd.ca.gov", url: "#", tag: "Business & Tech", icon: "💼",
+    points: 389, user: "SDEconWatch", time: 96, commentCount: 245, isFeatured: true,
+    summary: "San Diego County's unemployment rate fell to 3.1% in February, with North County's tech and biotech corridor adding 4,200 jobs. The Carlsbad-Oceanside-Vista metro area saw the strongest gains in software, defense contracting, and healthcare. Wage growth outpaced state averages for the third consecutive quarter.",
     sources: [
-      { text: "Robertson Ranch master plan", src: "Carlsbad Parks & Recreation, 2026" },
-      { text: "Future courts plan", src: "carlsbadca.gov/parks-recreation/future-pickleball-courts" },
-      { text: "340% growth", src: "Pickleball Club of Carlsbad (pickleballclub.life)" }
+      { text: "3.1% unemployment rate", src: "CA Employment Development Department, Feb 2026" },
+      { text: "4,200 new jobs", src: "SANDAG Economic Indicators Report" },
+      { text: "Wage growth data", src: "Bureau of Labor Statistics, San Diego MSA" }
     ],
-    relevance: "Brian. SIX MORE COURTS. Robertson Ranch is in the Aviara/La Costa area — close to your Aliso Viejo neighborhood. LED lighting means post-work winter sessions. No more 6am Poinsettia Park lineups. Your wait times are about to get a lot shorter.",
-    conservative: "This is government spending that makes fiscal sense. At $25-45K per court serving 200+ daily players, pickleball courts have the highest utilization-per-dollar of any public amenity. The 340% growth validates demand — this isn't speculative, it's responding to demonstrated community use. Compare the cost-per-user to a $278M/mile light rail extension."
+    relevance: generateRelevance("San Diego tech jobs hiring economy", { tag: "Business & Tech" }, "San Diego employment economy"),
+    conservative: generateConservativeAnalysis("San Diego unemployment jobs economy hiring", { tag: "Business & Tech" })
   },
   {
     id: 9003,
-    title: "California Expands Autism Services Funding by $412M; SDRC to Receive $38M Boost for Adult Transition Programs",
-    domain: "dds.ca.gov", url: "#", tag: "Health & Services", icon: "🏥",
-    points: 389, user: "AutismAdvocateSD", time: 120, commentCount: 267, isFeatured: true,
-    summary: "Governor signed AB 1847, increasing Regional Center funding by $412M. San Diego Regional Center gets $38M more — targeting wait time reduction (currently 94 days), adult transition services (ages 18-22), and provider reimbursement rates lagging inflation by 23%. AB 1953 creates a $25M supported employment pilot for adults with autism.",
+    title: "California Gas Prices Hit $5.89 Average; Legislators Debate Cap-and-Trade Expansion",
+    domain: "energy.ca.gov", url: "#", tag: "Energy & Climate", icon: "⚡",
+    points: 512, user: "CAPolicyWatch", time: 48, commentCount: 467, isFeatured: true,
+    summary: "California's average gas price reached $5.89/gallon, $1.62 above the national average. The state-imposed cost stack includes cap-and-trade credits ($0.28), low carbon fuel standard ($0.22), and state excise tax ($0.58). AB 2087 proposes expanding cap-and-trade to cover medium-duty trucks by 2028.",
     sources: [
-      { text: "$412M increase", src: "AB 1847; Legislative Analyst's Office" },
-      { text: "94-day wait times", src: "SDRC Annual Performance Report, FY2024-25" },
-      { text: "23% provider rate lag", src: "ARCA rate study, 2025" },
-      { text: "$25M employment pilot", src: "AB 1953 (Friedman)" }
+      { text: "$5.89 average, $1.62 above national", src: "AAA Fuel Gauge Report, March 2026" },
+      { text: "State cost stack breakdown", src: "Legislative Analyst's Office, Gas Price Report" },
+      { text: "AB 2087 cap-and-trade expansion", src: "CA Legislature Bill Text" }
     ],
-    relevance: "Brian, this is deeply personal. With a 19-year-old son at home with autism, you know the transition cliff at 18-22. The AB 1953 employment pilot is specifically for young adults like your son. The provider rate increase directly affects whether qualified therapists stay in the field or leave for better-paying work — every autism family has felt that turnover.",
-    conservative: "Disability services for individuals who genuinely cannot provide for themselves are a legitimate government function. The economic case is compelling: supported employment reduces lifetime public benefit costs by 40-60% (per Buescher et al., JAMA Pediatrics, 2014). Spending $25M on employment placement that reduces long-term costs by billions is fiscally sound. The critique: accountability. $412M into a system without mandatory outcome reporting is wasteful. Require measurable benchmarks."
+    relevance: generateRelevance("California gas price cap-and-trade energy cost", { tag: "Energy & Climate" }, "California gas price energy"),
+    conservative: generateConservativeAnalysis("California gas price cap-and-trade energy cost regulation", { tag: "Energy & Climate" })
   }
 ];
 
@@ -369,7 +367,7 @@ const AnalysisBox = ({ type, content }) => {
       borderRadius: 6, padding: "14px 16px", marginTop: 10
     }}>
       <div style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 8, color: isRel ? C.blue : "#15803d" }}>
-        {isRel ? "📍 Why This Matters to Brian" : "🏛 Conservative Analysis"}
+        {isRel ? `📍 Why This Matters to ${BRIAN.name || "You"}` : "🏛 Conservative Analysis"}
       </div>
       <div style={{ fontSize: 13.5, lineHeight: 1.65, color: "#1f2937", whiteSpace: "pre-line" }}>{content}</div>
     </div>
@@ -435,19 +433,18 @@ const BirthdayBanner = () => {
       <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
         <div style={{ fontSize: 36 }}>🎂</div>
         <div>
-          <div style={{ fontSize: 18, fontWeight: 700, color: C.gold }}>Happy Birthday, Brian!</div>
+          <div style={{ fontSize: 18, fontWeight: 700, color: C.gold }}>North County Beacon</div>
           <div style={{ fontSize: 13, color: "#cbd5e1", marginTop: 2, lineHeight: 1.5 }}>
-            Your personalized North County news — refreshed with live stories every time you open it.
-            <br/><span style={{ fontSize: 11, color: "#94a3b8" }}>A gift from your brother Chris. Every story analyzed for you. 🏓</span>
+            Personalized North County news — refreshed with live stories every time you open it.
+            <br/><span style={{ fontSize: 11, color: "#94a3b8" }}>Click "Customize Profile" to personalize. Every story analyzed for you.</span>
           </div>
         </div>
       </div>
       <div style={{ marginTop: 10, display: "flex", gap: 12, flexWrap: "wrap", fontSize: 11, color: "#94a3b8" }}>
-        <span><span style={{ color: C.uclaGold }}>●</span> UCLA Economics '94</span>
-        <span><span style={{ color: "#c084fc" }}>●</span> Proud Husky Dad</span>
-        <span><span style={{ color: C.green }}>●</span> Fintech Leader</span>
-        <span><span style={{ color: "#f472b6" }}>●</span> Autism Advocate</span>
-        <span><span style={{ color: C.birthdayGold }}>●</span> Pickleball Regular</span>
+        <span><span style={{ color: C.green }}>●</span> Live RSS Feeds</span>
+        <span><span style={{ color: C.blue }}>●</span> Conservative Analysis</span>
+        <span><span style={{ color: C.gold }}>●</span> Personalized Relevance</span>
+        <span><span style={{ color: "#c084fc" }}>●</span> Fantasy Football Intel</span>
       </div>
     </div>
   );
@@ -477,7 +474,7 @@ const Header = ({ onHome, lastRefresh, activeFilter, onFilter, onEditFeeds, feed
       <div>
         <div style={{ fontSize: 16, fontWeight: 700, color: "#ffffff", lineHeight: 1.1 }}>North County Beacon</div>
         <div style={{ fontSize: 10, color: "#94a3b8", letterSpacing: 0.5 }}>
-          BRIAN T. BAILEY EDITION · LIVE FEEDS · {lastRefresh ? `Updated ${lastRefresh}` : "Loading..."}
+          PERSONALIZED EDITION · LIVE FEEDS · {lastRefresh ? `Updated ${lastRefresh}` : "Loading..."}
         </div>
       </div>
     </div>
@@ -556,8 +553,8 @@ const ProfileEditor = ({ profile, onSave, onClose }) => {
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 16px" }}>
         {field("First Name", "name", "Brian")}
-        {field("Full Name", "fullName", "Brian T. Bailey")}
-        {field("Street / Neighborhood", "street", "Aliso Viejo")}
+        {field("Full Name", "fullName", "Your Full Name")}
+        {field("Street / Neighborhood", "street", "Your Neighborhood")}
         {field("City", "city", "Carlsbad")}
         {field("Region", "region", "North County")}
         {field("Alma Mater", "school", "UCLA")}
@@ -1845,10 +1842,10 @@ const FantasyDashboard = ({ profile, onSaveProfile }) => {
 
 const Footer = () => (
   <div style={{ borderTop: `3px solid ${C.gold}`, padding: "20px", textAlign: "center", backgroundColor: C.navy, marginTop: 20 }}>
-    <div style={{ color: C.gold, fontSize: 14, fontWeight: 600, marginBottom: 6 }}>Built for Brian Bailey 🎂</div>
-    <div style={{ color: "#94a3b8", fontSize: 12, marginBottom: 10 }}>From your brother Chris · Live RSS feeds refresh on every visit</div>
+    <div style={{ color: C.gold, fontSize: 14, fontWeight: 600, marginBottom: 6 }}>North County Beacon</div>
+    <div style={{ color: "#94a3b8", fontSize: 12, marginBottom: 10 }}>Live RSS feeds refresh on every visit · Customize via profile editor</div>
     <div style={{ color: "#64748b", fontSize: 10, marginBottom: 6 }}>Carlsbad · Encinitas · Oceanside · Escondido · Vista · San Marcos · Poway</div>
-    <div style={{ color: "#475569", fontSize: 10 }}>Go Bruins. Go Huskies. Go pickleball.</div>
+    <div style={{ color: "#475569", fontSize: 10 }}>Fork this project on GitHub and make it your own.</div>
   </div>
 );
 
