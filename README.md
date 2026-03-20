@@ -2,7 +2,7 @@
 
 Open-source fantasy football intelligence. Every number shows its math.
 
-**Live site:** [chrbailey.github.io/north-county-beacon](https://chrbailey.github.io/north-county-beacon/)
+**Live site:** [chrbailey.github.io/sleeper-scores](https://chrbailey.github.io/sleeper-scores/)
 
 ---
 
