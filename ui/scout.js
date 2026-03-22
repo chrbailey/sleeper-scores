@@ -77,7 +77,7 @@ export function PlayerScout({ players, profiles }) {
           style=${{ fontSize: 12, color: 'var(--blue)', cursor: 'pointer', marginBottom: 8 }}>
           ${'<'}\u2014 Back to results
         </div>
-        <${PlayerIntelligenceCard} profile=${selected.analysis} />
+        <${PlayerIntelligenceCard} player=${selected} profile=${selected.analysis} onClose=${() => setSelected(null)} />
       </div>
     `;
   }
