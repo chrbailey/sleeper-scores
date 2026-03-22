@@ -292,7 +292,7 @@ def save_profiles(profiles: Dict[str, Dict], path: Optional[str] = None) -> str:
 
 if __name__ == '__main__':
     print('Loading play-by-play data...')
-    all_plays = load_plays()
+    all_plays = load_plays(seasons=[2024, 2025])
     print(f'  {len(all_plays):,} plays loaded')
 
     print('Building RB profiles...')

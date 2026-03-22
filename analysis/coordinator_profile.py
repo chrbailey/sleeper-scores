@@ -299,7 +299,7 @@ def save_profiles(profiles: Dict[str, Dict], path: str) -> None:
 
 def main() -> None:
     print("Loading play-by-play data ...")
-    plays = load_plays()
+    plays = load_plays(seasons=[2024, 2025])
     print(f"  {len(plays)} total rows loaded")
 
     all_plays = pass_plays(plays) + rush_plays(plays)

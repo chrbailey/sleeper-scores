@@ -264,7 +264,7 @@ def save_qb_profiles(
 
 if __name__ == '__main__':
     print('Loading play-by-play data...')
-    all_plays = load_plays()
+    all_plays = load_plays(seasons=[2024, 2025])
     print(f'  {len(all_plays):,} total plays loaded.')
 
     print('Building QB profiles (min {0} attempts)...'.format(MIN_PASS_ATTEMPTS))

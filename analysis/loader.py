@@ -8,7 +8,12 @@ import csv
 import os
 from typing import Dict, List, Optional
 
-DATA_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'pbp_2024.csv')
+DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
+DATA_PATH = os.path.join(DATA_DIR, 'pbp_2024.csv')
+DATA_PATHS = {
+    2024: os.path.join(DATA_DIR, 'pbp_2024.csv'),
+    2025: os.path.join(DATA_DIR, 'pbp_2025.csv'),
+}
 
 # Columns we actually use (skip the other 350+ to save memory)
 USED_COLUMNS = {
@@ -59,9 +64,21 @@ def _convert(row: Dict[str, str]) -> Dict:
     return out
 
 
-def load_plays(path: Optional[str] = None) -> List[Dict]:
-    """Load all plays from the CSV. Returns list of dicts with typed values."""
+def load_plays(path: Optional[str] = None, seasons: Optional[List[int]] = None) -> List[Dict]:
+    """Load plays from CSV(s). If seasons provided, loads multiple years."""
+    if seasons:
+        plays = []
+        for year in seasons:
+            p = DATA_PATHS.get(year)
+            if p and os.path.exists(p):
+                plays.extend(_load_single(p))
+        return plays
     path = path or DATA_PATH
+    return _load_single(path)
+
+
+def _load_single(path: str) -> List[Dict]:
+    """Load all plays from a single CSV."""
     plays = []
     with open(path, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
