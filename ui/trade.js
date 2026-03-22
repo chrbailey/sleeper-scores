@@ -109,7 +109,7 @@ export function TradeAnalyzer({ players, profiles }) {
     explain: {
       method: 'Composite value comparison: sum of analytics composite scores (0-99) for each side',
       formula: `Composite \u0394: ${totalComposite(sideB)} - ${totalComposite(sideA)} = ${compDiff > 0 ? '+' : ''}${compDiff}`,
-      source: '2024 nflfastR play-by-play analytics profiles',
+      source: '2024-2025 nflfastR play-by-play analytics (98,263 plays)',
       caveats: [
         'Composite scores are weighted by year-to-year predictive research',
         'Players without profiles contribute 0 to the total',

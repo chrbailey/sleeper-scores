@@ -216,7 +216,7 @@ function buildResult(value, method, formula, caveats) {
     explain: {
       method: method,
       formula: formula,
-      source: '2024 nflfastR play-by-play data (49,492 plays)',
+      source: '2024-2025 nflfastR play-by-play data (98,263 plays)',
       caveats: caveats || [],
     },
   };
@@ -273,7 +273,7 @@ export function generateScoutReport(analysis, playerName, position) {
   const tier = comp >= 80 ? 'elite' : comp >= 65 ? 'strong' : comp >= 50 ? 'average' : comp >= 35 ? 'below average' : 'poor';
 
   if (analysis.composite.explain) {
-    parts.push(`${playerName} grades as ${tier} (${comp}/99) among ${position}s based on play-by-play analysis of the 2024 season.`);
+    parts.push(`${playerName} grades as ${tier} (${comp}/99) among ${position}s based on play-by-play analysis of the 2024-2025 seasons.`);
   }
 
   // Position-specific insights

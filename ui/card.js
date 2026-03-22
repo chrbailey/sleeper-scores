@@ -141,7 +141,7 @@ export function PlayerIntelligenceCard({ player, stats, projections, currentWeek
           </div>
         </div>
         <div style=${{ padding: '20px 12px', textAlign: 'center', color: 'var(--meta)', fontSize: 12, lineHeight: 1.6, background: 'var(--surface)', borderRadius: 'var(--radius-sm)' }}>
-          No play-by-play profile available. This player may be a rookie or had insufficient 2024 data.
+          No play-by-play profile available. This player may be a rookie or had insufficient 2024-2025 data.
         </div>
       </div>
     `;
@@ -319,7 +319,7 @@ function renderTrendRow(weeklyEpa, openPanel, toggle) {
     explain: {
       method: 'Weekly EPA Trend',
       formula: `Recent 4-week avg: ${(recentAvg).toFixed(3)} vs earlier avg: ${(earlierAvg).toFixed(3)}`,
-      source: '2024 nflfastR play-by-play data (49,492 plays)',
+      source: '2024-2025 nflfastR play-by-play data (98,263 plays)',
       caveats: [
         `${weeklyEpa.length} weeks of EPA data`,
         'Trend direction based on 0.02 EPA threshold',
